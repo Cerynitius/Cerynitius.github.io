@@ -247,6 +247,7 @@ export default function Home() {
         </nav>
         <div className="nav-right">
           <a className="sq ghost" href={OWNER.github} target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
+          <a className="sq ghost" href={OWNER.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">IG</a>
           <button className="sq" type="button" onClick={toggleLang} aria-label={t.langAria}>{t.langButton}</button>
           <button className="sq burger" type="button" onClick={() => setMenuOpen((v) => !v)} aria-label="menu" aria-expanded={menuOpen}>{menuOpen ? "×" : "≡"}</button>
         </div>
@@ -401,6 +402,7 @@ export default function Home() {
             <a className="crow" href={`mailto:${OWNER.email}`}><span className="mono">{t.contactItems.email}</span><strong>{OWNER.email}</strong><Arrow /></a>
             <a className="crow" href={OWNER.github} target="_blank" rel="noreferrer"><span className="mono">{t.contactItems.github}</span><strong>@{OWNER.handle}</strong><Arrow /></a>
             <a className="crow" href={OWNER.huggingface} target="_blank" rel="noreferrer"><span className="mono">{t.contactItems.hf}</span><strong>@Hippocrene</strong><Arrow /></a>
+            <a className="crow" href={OWNER.instagram} target="_blank" rel="noreferrer"><span className="mono">{t.contactItems.instagram}</span><strong>@{OWNER.instagramHandle}</strong><Arrow /></a>
             <div className="crow"><span className="mono">{t.contactItems.wechat}</span><strong>{OWNER.wechat}</strong><span /></div>
             <div className="crow"><span className="mono">{t.contactItems.location}</span><strong>{OWNER.location[lang]}</strong><span /></div>
           </div>

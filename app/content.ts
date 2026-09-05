@@ -15,6 +15,8 @@ export const OWNER = {
   siteRepo: "https://github.com/Cerynitius/Cerynitius.github.io",
   github: "https://github.com/Cerynitius",
   huggingface: "https://huggingface.co/Hippocrene",
+  instagram: "https://www.instagram.com/cery.nitis/",
+  instagramHandle: "cery.nitis",
   email: "ruixiu_zhang@outlook.com",
   wechat: "Zrx2028sdsz",
   location: { zh: "北京", en: "Beijing" } satisfies Bi,
@@ -88,7 +90,7 @@ export const ui = {
     contactIndex: "05",
     contactLabel: "CONTACT",
     contactTitle: ["研究讨论、算力合作、", "项目合作，都欢迎。"],
-    contactItems: { email: "EMAIL", github: "GITHUB", hf: "HUGGING FACE", wechat: "WECHAT", location: "LOCATION" },
+    contactItems: { email: "EMAIL", github: "GITHUB", hf: "HUGGING FACE", instagram: "INSTAGRAM", wechat: "WECHAT", location: "LOCATION" },
     footerBuilt: "BUILT WITH NEXT.JS · DEPLOYED ON GITHUB PAGES",
     friendLinks: "FRIENDS",
     copyright: "© 2026 张睿修 · Cerynitius",
@@ -161,7 +163,7 @@ export const ui = {
     contactIndex: "05",
     contactLabel: "CONTACT",
     contactTitle: ["Research, compute,", "or a project. Say hi."],
-    contactItems: { email: "EMAIL", github: "GITHUB", hf: "HUGGING FACE", wechat: "WECHAT", location: "LOCATION" },
+    contactItems: { email: "EMAIL", github: "GITHUB", hf: "HUGGING FACE", instagram: "INSTAGRAM", wechat: "WECHAT", location: "LOCATION" },
     footerBuilt: "BUILT WITH NEXT.JS · DEPLOYED ON GITHUB PAGES",
     friendLinks: "FRIENDS",
     copyright: "© 2026 张睿修 · Cerynitius",
@@ -337,7 +339,8 @@ export const services: Service[] = [
 ];
 
 export const friendLinks = [
-  { name: "Alumin-Hydro", href: "https://github.com/Alumin-Hydro" },
   { name: "Groovin", href: "https://groovin.cn" },
+  { name: "Alumin-Hydro", href: "https://github.com/Alumin-Hydro" },
   { name: "水澄Mizu", href: "https://mizusumi.com" },
+  { name: "ChromiteCr", href: "https://github.com/ChromiteCr" },
 ];
