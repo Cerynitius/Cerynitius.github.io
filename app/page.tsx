@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { OWNER, friendLinks, interview, projects, research, services, ui, type Lang } from "./content";
 
 const LANG_KEY = "site-lang";
@@ -120,6 +120,72 @@ function SmoothScroll() {
   return null;
 }
 
+// Centre burst (50% 46%), re-fractured into irregular glass shards (Voronoi tiling).
+const SHARDS: { poly: string; dx: number; dy: number; rot: number; dist: number }[] = [
+  { poly: "57.7% 58.8%, 58.4% 57.9%, 57.1% 35.1%, 42.3% 41.0%, 42.2% 50.1%", dx: 0.91, dy: 0.41, rot: 10, dist: 1158 },
+  { poly: "57.1% 35.1%, 58.4% 57.9%, 73.0% 52.2%, 76.8% 39.2%, 74.5% 34.6%, 59.1% 31.8%", dx: 0.99, dy: -0.14, rot: 11, dist: 1261 },
+  { poly: "23.8% 61.8%, 42.2% 50.1%, 42.3% 41.0%, 34.6% 35.4%, 21.9% 59.1%", dx: -0.99, dy: 0.16, rot: -6, dist: 1268 },
+  { poly: "34.6% 35.4%, 42.3% 41.0%, 57.1% 35.1%, 59.1% 31.8%, 55.5% 22.9%, 28.3% 17.8%, 26.4% 19.2%", dx: -0.37, dy: -0.93, rot: 6, dist: 1279 },
+  { poly: "25.8% 72.3%, 56.7% 67.2%, 57.7% 58.8%, 42.2% 50.1%, 23.8% 61.8%", dx: -0.5, dy: 0.87, rot: -2, dist: 1280 },
+  { poly: "59.1% 70.9%, 99.1% 75.9%, 73.0% 52.2%, 58.4% 57.9%, 57.7% 58.8%, 56.7% 67.2%", dx: 0.78, dy: 0.62, rot: -11, dist: 1364 },
+  { poly: "59.1% 31.8%, 74.5% 34.6%, 86.7% 15.9%, 63.5% 7.6%, 55.5% 22.9%", dx: 0.63, dy: -0.78, rot: -1, dist: 1369 },
+  { poly: "25.7% 72.6%, 56.4% 94.1%, 59.1% 70.9%, 56.7% 67.2%, 25.8% 72.3%", dx: -0.1, dy: 1.0, rot: 8, dist: 1374 },
+  { poly: "21.9% 59.1%, 34.6% 35.4%, 26.4% 19.2%, 0.0% 23.5%, 0.0% 40.8%", dx: -0.96, dy: -0.28, rot: -5, dist: 1392 },
+  { poly: "61.0% 0.0%, 35.6% 0.0%, 28.3% 17.8%, 55.5% 22.9%, 63.5% 7.6%", dx: -0.09, dy: -1.0, rot: -6, dist: 1400 },
+  { poly: "73.0% 52.2%, 99.1% 75.9%, 100.0% 76.3%, 100.0% 46.5%, 76.8% 39.2%", dx: 0.97, dy: 0.22, rot: -9, dist: 1428 },
+  { poly: "76.8% 39.2%, 100.0% 46.5%, 100.0% 11.4%, 86.7% 15.9%, 74.5% 34.6%", dx: 0.93, dy: -0.37, rot: 3, dist: 1453 },
+  { poly: "25.7% 72.6%, 25.8% 72.3%, 23.8% 61.8%, 21.9% 59.1%, 0.0% 40.8%, 0.0% 100.0%, 7.0% 100.0%", dx: -0.85, dy: 0.53, rot: -4, dist: 1483 },
+  { poly: "7.0% 100.0%, 46.6% 100.0%, 56.4% 94.2%, 56.4% 94.1%, 25.7% 72.6%", dx: -0.4, dy: 0.92, rot: -2, dist: 1488 },
+  { poly: "56.4% 94.2%, 66.2% 100.0%, 100.0% 100.0%, 100.0% 76.3%, 99.1% 75.9%, 59.1% 70.9%, 56.4% 94.1%", dx: 0.58, dy: 0.82, rot: -2, dist: 1496 },
+  { poly: "26.4% 19.2%, 28.3% 17.8%, 35.6% 0.0%, 0.0% 0.0%, 0.0% 23.5%", dx: -0.7, dy: -0.72, rot: -9, dist: 1499 },
+  { poly: "63.5% 7.6%, 86.7% 15.9%, 100.0% 11.4%, 100.0% 0.0%, 61.0% 0.0%", dx: 0.64, dy: -0.77, rot: 9, dist: 1509 },
+  { poly: "56.4% 94.2%, 46.6% 100.0%, 66.2% 100.0%", dx: 0.12, dy: 0.99, rot: 8, dist: 1517 },
+];
+function HeroArt() {
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
+  useEffect(() => {
+    const shards = refs.current;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduce) return;
+    let raf = 0;
+    const apply = () => {
+      raf = 0;
+      // burst and clear within ~65% of a viewport, before the content below
+      const range = window.innerHeight * 0.65;
+      const p = Math.max(0, Math.min(1, window.scrollY / range));
+      // instant crack the moment you scroll, then flight proportional to scroll (large factor)
+      const fly = p <= 0 ? 0 : 0.07 + 0.93 * p;
+      // non-linear fade: stays solid, then drops off as pieces reach the far edge
+      const opacity = Math.pow(1 - p, 2.2);
+      for (let i = 0; i < shards.length; i++) {
+        const el = shards[i]; const s = SHARDS[i]; if (!el) continue;
+        el.style.transform = `translate(${s.dx * s.dist * fly}px, ${s.dy * s.dist * fly}px) rotate(${s.rot * fly}deg)`;
+        el.style.opacity = `${opacity}`;
+        el.style.filter = p > 0.01 ? `drop-shadow(0 6px 16px rgba(0,0,0,${0.5 * p})) drop-shadow(0 0 ${1 + 4 * p}px rgba(118,185,0,${0.45 * (1 - p)}))` : "none";
+      }
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(apply); };
+    apply();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("scroll", onScroll); window.removeEventListener("resize", onScroll); };
+  }, []);
+  return (
+    <figure className="hero-art">
+      <div className="shatter" aria-label="Athena">
+        {SHARDS.map((sh, i) => (
+          <div
+            key={i}
+            ref={(el) => { refs.current[i] = el; }}
+            className="shard"
+            style={{ clipPath: `polygon(${sh.poly})`, WebkitClipPath: `polygon(${sh.poly})`, backgroundImage: `url(${OWNER.art})` }}
+          />
+        ))}
+      </div>
+    </figure>
+  );
+}
+
 function SectionHead({ index, label, children }: { index: string; label: string; children?: React.ReactNode }) {
   return (
     <div className="section-head reveal">
@@ -213,10 +279,7 @@ export default function Home() {
               <a className="btn" href="#contact">{t.heroButtons.contact}<Arrow /></a>
             </div>
           </div>
-          <figure className="hero-art">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={OWNER.art} alt="Athena" width={1200} height={1290} />
-          </figure>
+          <HeroArt />
         </div>
       </section>
 

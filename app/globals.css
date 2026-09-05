@@ -95,6 +95,8 @@ main[data-lang="zh"] .hero h1 .name { font-size: .5em; letter-spacing: .02em; }
 .hero-art { position: relative; margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; opacity: 0; animation: fadein 1.4s ease .3s forwards; }
 @keyframes fadein { to { opacity: 1; } }
 .hero-art img { width: 100%; max-width: 520px; height: auto; display: block; filter: drop-shadow(0 30px 60px rgba(0, 0, 0, .6)); }
+.shatter { position: relative; width: 100%; max-width: 480px; margin: 0 auto; aspect-ratio: 1162 / 1290; }
+.shard { position: absolute; inset: 0; background-position: center; background-size: contain; background-repeat: no-repeat; transform-origin: 50% 46%; pointer-events: none; will-change: transform, opacity, filter; }
 .hero-art::before { content: ""; position: absolute; left: 50%; bottom: 40px; width: 70%; height: 1px; background: linear-gradient(90deg, transparent, var(--green), transparent); transform: translateX(-50%); }
 .hero-art figcaption { letter-spacing: .16em; font-size: 10px; }
 @keyframes rise { to { opacity: 1; transform: none; } }
