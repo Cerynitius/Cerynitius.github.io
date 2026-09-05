@@ -170,7 +170,7 @@ main[data-lang="zh"] .hero h1 .name { font-size: .5em; letter-spacing: .02em; }
 .pill { padding: 5px 9px; border: 1px solid var(--green-dark); color: var(--green); font-family: var(--font-mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
 
 /* project cards */
-.cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .card { position: relative; display: flex; flex-direction: column; min-height: 250px; padding: 22px 22px 20px; background: var(--bg); color: inherit; transition: background .25s ease; }
 .card::before { content: ""; position: absolute; left: 0; right: 0; top: 0; height: 2px; background: var(--green); transform: scaleX(0); transform-origin: 0 50%; transition: transform .4s var(--ease); }
 .card:hover { background: var(--panel); }

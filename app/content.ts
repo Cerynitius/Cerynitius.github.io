@@ -253,7 +253,6 @@ export const projects: Project[] = [
     },
     stack: ["Python", "vLLM", "CUDA", "Offload"],
     href: "https://github.com/Cerynitius/freetoken-ox-boost",
-    featured: true,
   },
   {
     id: "02",
