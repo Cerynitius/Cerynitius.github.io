@@ -58,21 +58,14 @@ function SmoothScroll() {
     if (!fine || reduce) return;
     const html = document.documentElement;
     html.style.scrollBehavior = "auto";
-    let target = window.scrollY, current = window.scrollY, raf = 0, lastWheel = 0, programmatic = false, snapped = false;
-    const DAMP = 0.14, SNAP = 140, IDLE = 160;
+    let target = window.scrollY, current = window.scrollY, raf = 0, programmatic = false;
+    const DAMP = 0.14;
     const max = () => html.scrollHeight - window.innerHeight;
-    const anchors = () => Array.from(document.querySelectorAll<HTMLElement>("section[id], footer")).map((el) => el.getBoundingClientRect().top + window.scrollY);
     const tick = () => {
       const diff = target - current;
       if (Math.abs(diff) < 0.4) {
         current = target;
         programmatic = true; window.scrollTo(0, current);
-        // attraction: when idle near a section start, drift to it
-        if (!snapped && performance.now() - lastWheel > IDLE) {
-          let best = Infinity, bestTop = 0;
-          for (const top of anchors()) { const d = Math.abs(top - target); if (d < best) { best = d; bestTop = top; } }
-          if (best > 1 && best < SNAP && bestTop <= max()) { target = bestTop; snapped = true; raf = requestAnimationFrame(tick); return; }
-        }
         raf = 0; return;
       }
       current += diff * DAMP;
@@ -85,7 +78,6 @@ function SmoothScroll() {
       e.preventDefault();
       const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1;
       target = Math.max(0, Math.min(max(), target + e.deltaY * unit));
-      lastWheel = performance.now(); snapped = false;
       kick();
     };
     const onScroll = () => {
@@ -101,7 +93,6 @@ function SmoothScroll() {
       if (!el) return;
       e.preventDefault();
       target = Math.max(0, Math.min(max(), el.getBoundingClientRect().top + window.scrollY));
-      snapped = true; lastWheel = performance.now();
       history.replaceState(null, "", id ? `#${id}` : window.location.pathname);
       kick();
     };
