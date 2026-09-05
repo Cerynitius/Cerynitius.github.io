@@ -290,14 +290,14 @@ export const projects: Project[] = [
   },
   {
     id: "05",
-    slug: "llm-train",
-    name: "llmTrain",
+    slug: "agent-team",
+    name: "agent_team",
     text: {
-      zh: "小规模语言模型的训练脚本与实践。",
-      en: "Training scripts and practice for small language models.",
+      zh: "目标是实现基本功能的简约 multi-agent team。",
+      en: "A minimal multi-agent team aimed at getting the basics working.",
     },
-    stack: ["Python", "PyTorch", "Training"],
-    href: "https://github.com/Cerynitius/llmTrain",
+    stack: ["Python", "Multi-agent", "Orchestration"],
+    href: "https://github.com/Cerynitius/agent_team",
   },
   {
     id: "06",
