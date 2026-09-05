@@ -38,8 +38,8 @@ export const ui = {
         ["SCHOOL", "SDSZ 国际部"],
         ["CLUB", "炼丹社 · 主理"],
         ["LAB", "跟随高校课题组研究"],
-        ["TRAIN", "PyTorch · Transformers · FP8 微调 · DPO · RAG"],
-        ["SERVE", "vLLM · FreeToken 手搓适配 · Medusa · FP8 量化 · CUDA"],
+        ["TRAIN", "PyTorch · Transformers · 原生 FP8 训练 · DPO · RAG"],
+        ["SERVE", "vLLM · FreeToken 手搓适配 · Medusa · NVFP4 量化 · CUDA"],
         ["MODELS", "Qwen · GLM · DeepSeek · Llama"],
         ["RESEARCH", "TransformerLens · 循环 Transformer (ACT) · 因果分析"],
         ["AGENTS", "多智能体 · FSM · DAG 调度 · MCP · ComfyUI"],
@@ -113,8 +113,8 @@ export const ui = {
         ["SCHOOL", "SDSZ International"],
         ["CLUB", "炼丹社 · Lead"],
         ["LAB", "University research group"],
-        ["TRAIN", "PyTorch · Transformers · FP8 fine-tuning · DPO · RAG"],
-        ["SERVE", "vLLM · FreeToken hand-rolled support · Medusa · FP8 quant · CUDA"],
+        ["TRAIN", "PyTorch · Transformers · native FP8 training · DPO · RAG"],
+        ["SERVE", "vLLM · FreeToken hand-rolled support · Medusa · NVFP4 quant · CUDA"],
         ["MODELS", "Qwen · GLM · DeepSeek · Llama"],
         ["RESEARCH", "TransformerLens · Recurrent Transformer (ACT) · Causal analysis"],
         ["AGENTS", "Multi-agent · FSM · DAG scheduling · MCP · ComfyUI"],
@@ -190,8 +190,8 @@ export const research: Research[] = [
     id: "02",
     title: { zh: "多模态与动态特征扩展", en: "Multimodal and Dynamic Feature Expansion" },
     text: {
-      zh: "以 Qwen2.5-VL-7B 为骨干，研究 VLM 的动态特征扩展（DFE），让视觉 token 的表征容量随输入内容变化。",
-      en: "Dynamic Feature Expansion (DFE) for VLMs on a Qwen2.5-VL-7B backbone, letting the representational capacity of visual tokens adapt to the input.",
+      zh: "以 Qwen2.5-VL-7B 为骨干做动态特征扩展（DFE），研究输入分辨率对 3D 凹凸拓扑细节识别的影响。",
+      en: "Dynamic Feature Expansion (DFE) on a Qwen2.5-VL-7B backbone, studying how input resolution affects recognition of 3D relief and topological detail.",
     },
     tags: ["VLM", "Qwen2.5-VL", "Multimodal"],
     status: { zh: "进行中", en: "In progress" },
@@ -291,17 +291,6 @@ export const projects: Project[] = [
   },
   {
     id: "05",
-    slug: "agent-team",
-    name: "agent_team",
-    text: {
-      zh: "多智能体协作系统的设计与原型。",
-      en: "Design and prototypes for multi-agent collaboration systems.",
-    },
-    stack: ["Python", "Multi-agent", "Orchestration"],
-    href: "https://github.com/Cerynitius/agent_team",
-  },
-  {
-    id: "06",
     slug: "llm-train",
     name: "llmTrain",
     text: {
@@ -312,7 +301,7 @@ export const projects: Project[] = [
     href: "https://github.com/Cerynitius/llmTrain",
   },
   {
-    id: "07",
+    id: "06",
     slug: "minillm",
     name: "MiniLLM-0.1B",
     text: {
