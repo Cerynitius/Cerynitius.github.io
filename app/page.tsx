@@ -22,10 +22,8 @@ function Cursor() {
       x = e.clientX; y = e.clientY;
       if (!visible) { visible = true; rx = x; ry = y; document.documentElement.classList.add("cursor-visible"); }
       dot.style.transform = `translate(${x}px, ${y}px)`;
-      const el = e.target as HTMLElement | null;
-      const t = el?.closest?.("a, button, [role=button], input, textarea, select, label");
+      const t = (e.target as HTMLElement | null)?.closest?.("a, button, [role=button], input, textarea, select, label");
       document.documentElement.classList.toggle("cursor-hover", !!t);
-      document.documentElement.classList.toggle("cursor-pink", !!el?.closest?.("#club"));
     };
     const leave = () => { visible = false; document.documentElement.classList.remove("cursor-visible"); };
     const down = () => document.documentElement.classList.add("cursor-down");
@@ -47,7 +45,7 @@ function Cursor() {
       document.removeEventListener("mouseleave", leave);
       window.removeEventListener("mousedown", down);
       window.removeEventListener("mouseup", up);
-      document.documentElement.classList.remove("has-cursor", "cursor-visible", "cursor-hover", "cursor-down", "cursor-pink");
+      document.documentElement.classList.remove("has-cursor", "cursor-visible", "cursor-hover", "cursor-down");
     };
   }, []);
   return <><div id="cur-dot" aria-hidden="true" /><div id="cur-ring" aria-hidden="true" /></>;
@@ -301,7 +299,7 @@ export default function Home() {
               <dl className="about-blocks">
                 {t.aboutBlocks.map((b) => <div key={b.label}><dt className="mono">{b.label}</dt><dd>{b.text}</dd></div>)}
               </dl>
-              <p className="about-closing">{t.aboutClosing}</p>
+              <img className="about-eel" src="/eel.png" alt="Japanese eel engraving" loading="lazy" />
             </div>
             <div className="reveal">
           <aside className="spec" aria-label={t.spec.title}>
