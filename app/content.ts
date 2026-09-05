@@ -323,7 +323,7 @@ export const interview = {
 export const services: Service[] = [
   {
     name: { zh: "炼丹社 FreeAPI", en: "炼丹社 FreeAPI" },
-    url: "内部邀请制",
+    url: "internal",
     text: {
       zh: "免费的 GPU 推理 API。算力有限，内部邀请制使用。开放无限制版权重推理，赋能网安测试。",
       en: "A free GPU inference API. Compute is limited, so access is internal and invite-only. Serves unrestricted-weight inference to support cybersecurity testing.",
@@ -343,4 +343,5 @@ export const services: Service[] = [
 export const friendLinks = [
   { name: "Alumin-Hydro", href: "https://github.com/Alumin-Hydro" },
   { name: "Groovin", href: "https://groovin.cn" },
+  { name: "水澄Mizu", href: "https://mizusumi.com" },
 ];

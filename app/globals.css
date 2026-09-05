@@ -49,6 +49,11 @@ html.cursor-visible #cur-dot, html.cursor-visible #cur-ring { opacity: 1; }
 html.cursor-hover #cur-ring { width: 56px; height: 56px; margin: -28px 0 0 -28px; border-color: var(--green); background: rgba(118, 185, 0, .12); mix-blend-mode: normal; }
 html.cursor-hover #cur-dot { width: 4px; height: 4px; margin: -2px 0 0 -2px; background: #fff; mix-blend-mode: difference; }
 html.cursor-down #cur-ring { width: 24px; height: 24px; margin: -12px 0 0 -12px; }
+/* over the green club section: invert to black */
+html.cursor-invert #cur-dot { background: var(--black); mix-blend-mode: normal; }
+html.cursor-invert #cur-ring { border-color: rgba(0, 0, 0, .55); background: transparent; mix-blend-mode: normal; }
+html.cursor-invert.cursor-hover #cur-ring { border-color: var(--black); background: rgba(0, 0, 0, .1); }
+html.cursor-invert.cursor-hover #cur-dot { background: var(--black); }
 @media (hover: none), (pointer: coarse) { #cur-dot, #cur-ring { display: none; } }
 
 /* ── nav ── */

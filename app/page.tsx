@@ -24,8 +24,9 @@ function Cursor() {
       dot.style.transform = `translate(${x}px, ${y}px)`;
       const t = (e.target as HTMLElement | null)?.closest?.("a, button, [role=button], input, textarea, select, label");
       document.documentElement.classList.toggle("cursor-hover", !!t);
+      document.documentElement.classList.toggle("cursor-invert", !!(e.target as HTMLElement | null)?.closest?.(".club"));
     };
-    const leave = () => { visible = false; document.documentElement.classList.remove("cursor-visible"); };
+    const leave = () => { visible = false; document.documentElement.classList.remove("cursor-visible", "cursor-invert"); };
     const down = () => document.documentElement.classList.add("cursor-down");
     const up = () => document.documentElement.classList.remove("cursor-down");
     const loop = () => {
@@ -45,10 +46,78 @@ function Cursor() {
       document.removeEventListener("mouseleave", leave);
       window.removeEventListener("mousedown", down);
       window.removeEventListener("mouseup", up);
-      document.documentElement.classList.remove("has-cursor", "cursor-visible", "cursor-hover", "cursor-down");
+      document.documentElement.classList.remove("has-cursor", "cursor-visible", "cursor-hover", "cursor-down", "cursor-invert");
     };
   }, []);
   return <><div id="cur-dot" aria-hidden="true" /><div id="cur-ring" aria-hidden="true" /></>;
+}
+
+function SmoothScroll() {
+  useEffect(() => {
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduce) return;
+    const html = document.documentElement;
+    html.style.scrollBehavior = "auto";
+    let target = window.scrollY, current = window.scrollY, raf = 0, lastWheel = 0, programmatic = false, snapped = false;
+    const DAMP = 0.14, SNAP = 140, IDLE = 160;
+    const max = () => html.scrollHeight - window.innerHeight;
+    const anchors = () => Array.from(document.querySelectorAll<HTMLElement>("section[id], footer")).map((el) => el.getBoundingClientRect().top + window.scrollY);
+    const tick = () => {
+      const diff = target - current;
+      if (Math.abs(diff) < 0.4) {
+        current = target;
+        programmatic = true; window.scrollTo(0, current);
+        // attraction: when idle near a section start, drift to it
+        if (!snapped && performance.now() - lastWheel > IDLE) {
+          let best = Infinity, bestTop = 0;
+          for (const top of anchors()) { const d = Math.abs(top - target); if (d < best) { best = d; bestTop = top; } }
+          if (best > 1 && best < SNAP && bestTop <= max()) { target = bestTop; snapped = true; raf = requestAnimationFrame(tick); return; }
+        }
+        raf = 0; return;
+      }
+      current += diff * DAMP;
+      programmatic = true; window.scrollTo(0, current);
+      raf = requestAnimationFrame(tick);
+    };
+    const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+    const onWheel = (e: WheelEvent) => {
+      if (e.ctrlKey || e.metaKey) return; // pinch zoom
+      e.preventDefault();
+      const unit = e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1;
+      target = Math.max(0, Math.min(max(), target + e.deltaY * unit));
+      lastWheel = performance.now(); snapped = false;
+      kick();
+    };
+    const onScroll = () => {
+      if (programmatic) { programmatic = false; return; }
+      // native scroll (keyboard, scrollbar, find): resync
+      target = current = window.scrollY;
+    };
+    const onClick = (e: MouseEvent) => {
+      const a = (e.target as HTMLElement | null)?.closest?.("a[href^='#']") as HTMLAnchorElement | null;
+      if (!a) return;
+      const id = a.getAttribute("href")!.slice(1);
+      const el = id ? document.getElementById(id) : document.body;
+      if (!el) return;
+      e.preventDefault();
+      target = Math.max(0, Math.min(max(), el.getBoundingClientRect().top + window.scrollY));
+      snapped = true; lastWheel = performance.now();
+      history.replaceState(null, "", id ? `#${id}` : window.location.pathname);
+      kick();
+    };
+    window.addEventListener("wheel", onWheel, { passive: false });
+    window.addEventListener("scroll", onScroll, { passive: true });
+    document.addEventListener("click", onClick);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("wheel", onWheel);
+      window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("click", onClick);
+      html.style.scrollBehavior = "";
+    };
+  }, []);
+  return null;
 }
 
 function SectionHead({ index, label, children }: { index: string; label: string; children?: React.ReactNode }) {
@@ -114,6 +183,7 @@ export default function Home() {
   return (
     <main data-lang={lang}>
       <Cursor />
+      <SmoothScroll />
       <header className={`nav${scrolled ? " scrolled" : ""}${menuOpen ? " open" : ""}`}>
         <a className="brand" href="#home"><i className="mark" /><span>{OWNER.handle.toUpperCase()}</span></a>
         <nav aria-label="main">
