@@ -177,7 +177,7 @@ export default function Home() {
             </dl>
             <div className="spec-foot">
               <a href={OWNER.github} target="_blank" rel="noreferrer" className="mono">github.com/{OWNER.handle}<Arrow size={11} /></a>
-              <a href={OWNER.huggingface} target="_blank" rel="noreferrer" className="mono">hf.co/Hippocrene<Arrow size={11} /></a>
+              <a href={OWNER.huggingface} target="_blank" rel="noreferrer" className="mono">huggingface.co/Hippocrene<Arrow size={11} /></a>
             </div>
           </aside>
             </div>
