@@ -153,8 +153,8 @@ function HeroArt() {
       // burst and clear within ~65% of a viewport, before the content below
       const range = window.innerHeight * 0.65;
       const p = Math.max(0, Math.min(1, window.scrollY / range));
-      // instant crack the moment you scroll, then flight proportional to scroll (large factor)
-      const fly = p <= 0 ? 0 : 0.07 + 0.93 * p;
+      // starts fully assembled (0), holds, then bursts — ease-in, no jump
+      const fly = p * p;
       // non-linear fade: stays solid, then drops off as pieces reach the far edge
       const opacity = Math.pow(1 - p, 2.2);
       for (let i = 0; i < shards.length; i++) {
