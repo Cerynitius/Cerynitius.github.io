@@ -178,10 +178,10 @@ export type Research = { id: string; title: Bi; text: Bi; tags: string[]; status
 export const research: Research[] = [
   {
     id: "01",
-    title: { zh: "概念的读出与控制", en: "Readout versus Control" },
+    title: { zh: "LLM 可解释性", en: "LLM Interpretability" },
     text: {
-      zh: "一个概念在 LLM 里能被读出，不代表能被控制。研究读出方向和控制方向如何分离，跨模型家族做裁决。延伸工作 Drifting ITI：用 drift model 动态预测注意力头的操控向量。",
-      en: "That a concept can be read out of an LLM does not mean it can be controlled. Studying how readout and control directions separate, adjudicated across model families. Follow-up, Drifting ITI: predicting attention-head steering vectors dynamically with a drift model.",
+      zh: "用操控向量研究读出方向和控制方向如何分离，以及如何解释它们所编码的概念。",
+      en: "Using steering vectors to study how readout and control directions separate, and how to explain the concepts they encode.",
     },
     tags: ["Interpretability", "Activation Steering", "ITI"],
     status: { zh: "论文投稿中", en: "Paper under review" },
@@ -335,7 +335,7 @@ export const services: Service[] = [
     name: { zh: "SDSZ 校园社区", en: "SDSZ Campus Community" },
     url: "sdsz.groovin.cn",
     href: "https://sdsz.groovin.cn",
-    text: { zh: "面向 SDSZ 学生的校园社区平台。由我独立维护。", en: "A campus community platform for SDSZ students. Maintained solely by me." },
+    text: { zh: "面向 SDSZ 学生的校园社区平台。由 Alumin-Hydro 独立维护。", en: "A campus community platform for SDSZ students. Maintained solely by Alumin-Hydro." },
     tags: ["Next.js", "Prisma", "Community"],
   },
 ];
