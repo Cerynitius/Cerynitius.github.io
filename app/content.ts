@@ -1,0 +1,367 @@
+// ─────────────────────────────────────────────────────────────
+// 所有站点内容都在这个文件里。改内容只需要改这里。
+// All site content lives here. Edit this file only to change what the page says.
+// ─────────────────────────────────────────────────────────────
+
+export type Lang = "zh" | "en";
+export type Bi = { zh: string; en: string };
+
+export const OWNER = {
+  name: "张睿修",
+  nameEn: "Ruixiu Zhang",
+  handle: "Cerynitius",
+  art: "/athena.png",
+  artCredit: "ATHENA",
+  avatar: "/avatar.svg", // 换成真实头像 / replace with a real photo in public/
+  siteRepo: "https://github.com/Cerynitius/Cerynitius.github.io",
+  github: "https://github.com/Cerynitius",
+  huggingface: "https://huggingface.co/Hippocrene",
+  email: "ruixiu_zhang@outlook.com",
+  wechat: "Zrx2028sdsz",
+  location: { zh: "北京", en: "Beijing" } satisfies Bi,
+};
+
+export const ui = {
+  zh: {
+    nav: { about: "关于", research: "研究", projects: "项目", club: "炼丹社", contact: "联系" },
+    langButton: "EN",
+    langAria: "Switch to English",
+    heroLabel: "CERYNITIUS — BEIJING, CN",
+    heroTitle: ["Insight", "张睿修"],
+    heroSub: "把模型拆开看，再让它跑得更快。",
+    heroText: "高中生。关注可解释性、多模态、3D 生成和推理优化。主理炼丹社，跟随高校课题组做研究。",
+    heroButtons: { projects: "查看项目", contact: "联系我" },
+    spec: {
+      title: "SPEC SHEET",
+      rows: [
+        ["ROLE", "研究 / 工程"],
+        ["FOCUS", "可解释性 · 多模态 · 3D 生成 · 推理优化"],
+        ["SCHOOL", "SDSZ 国际部"],
+        ["CLUB", "炼丹社 · 主理"],
+        ["LAB", "跟随高校课题组研究"],
+        ["GPU", "RTX PRO 6000 · 96GB"],
+        ["TRAIN", "PyTorch · Transformers · PEFT · DeepSpeed"],
+        ["SERVE", "vLLM · Medusa · FP8 / AWQ 量化 · CUDA"],
+        ["MODELS", "Qwen · GLM · DeepSeek · Llama"],
+        ["3D", "3D Gaussian Splatting · WebGL · Three.js"],
+        ["WEB", "Next.js · TypeScript · Prisma · PostgreSQL"],
+        ["INFRA", "Proxmox / VFIO · Docker · Tailscale · Cloudflare Tunnel"],
+        ["LANG", "Python · TypeScript · C++ · Shell"],
+      ],
+    },
+    ticker: ["Interpretability", "Activation Steering", "Multimodal", "VLM", "3D Generation", "3D Gaussian Splatting", "World Models", "Inference Optimization", "vLLM", "Quantization"],
+    aboutIndex: "01",
+    aboutLabel: "ABOUT",
+    aboutTitle: "想控制模型，不只是用它。",
+    aboutProse: [
+      "动手派。北京，高中生。四个方向：可解释性、多模态、3D 生成、推理优化。做法只有一个，先跑起来，再拆开看。",
+      "不写代码的时候养鱼养植物。近海原生的鲷和鲀，几盆办公室绿植。和训模型是一回事，都是看一个系统慢慢长。",
+    ],
+    stats: [
+      { value: "96", unit: "GB", label: "自维护显存" },
+      { value: "36.7", unit: "tok/s", label: "GLM-5.3-Flash · 单卡" },
+      { value: "2", unit: "", label: "Hugging Face 模型" },
+      { value: "3", unit: "", label: "运行中的服务" },
+    ],
+    researchIndex: "02",
+    researchLabel: "RESEARCH",
+    researchTitle: "研究方向",
+    researchIntro: "四个方向：搞清楚模型内部发生了什么，让它看懂图像和 3D 世界，再用最少的算力把它跑起来。",
+    projectsIndex: "03",
+    projectsLabel: "PROJECTS",
+    projectsTitle: "开源项目",
+    viewRepo: "GitHub",
+    viewModel: "Hugging Face",
+    clubIndex: "04",
+    clubLabel: "炼丹社 · LIANDAN SHE",
+    clubTitle: ["学生社团，自己的显卡，", "免费给同学用。"],
+    clubIntro: "炼丹社是 SDSZ 的学生 AI 社团。我们自己维护一张 RTX PRO 6000，算力有限，推理 API 内部邀请制使用。也做校园平台，接 AI 集成外包。",
+    online: "ONLINE",
+    inviteOnly: "INVITE ONLY",
+    interviewLabel: "访谈 · 数字生命卡兹克",
+    interviewTitle: "为让同学免费用AI，两个高中生……",
+    interviewText: "两位 16 岁的高中生把自己的算力接入社团，只为让更多同学能免费用上 AI。",
+    interviewDate: "2026.08.25 · BILIBILI",
+    interviewCta: "观看视频",
+    contactIndex: "05",
+    contactLabel: "CONTACT",
+    contactTitle: ["研究讨论、算力合作、", "项目合作，都欢迎。"],
+    contactItems: { email: "EMAIL", github: "GITHUB", hf: "HUGGING FACE", wechat: "WECHAT", location: "LOCATION" },
+    footerBuilt: "BUILT WITH NEXT.JS · DEPLOYED ON GITHUB PAGES",
+    friendLinks: "FRIENDS",
+    copyright: "© 2026 张睿修 · Cerynitius",
+    backTop: "TOP ↑",
+  },
+  en: {
+    nav: { about: "About", research: "Research", projects: "Projects", club: "Club", contact: "Contact" },
+    langButton: "中",
+    langAria: "切换到中文",
+    heroLabel: "CERYNITIUS — BEIJING, CN",
+    heroTitle: ["Insight", "Ruixiu Zhang"],
+    heroSub: "Take the model apart. Then make it run faster.",
+    heroText: "High-school developer. Focused on interpretability, multimodal models, 3D generation and inference optimization. I run 炼丹社, a student AI club, and do research with a university lab group.",
+    heroButtons: { projects: "Projects", contact: "Contact" },
+    spec: {
+      title: "SPEC SHEET",
+      rows: [
+        ["ROLE", "Research / Engineering"],
+        ["FOCUS", "Interpretability · Multimodal · 3D Gen · Inference"],
+        ["SCHOOL", "SDSZ International"],
+        ["CLUB", "炼丹社 · Lead"],
+        ["LAB", "University research group"],
+        ["GPU", "RTX PRO 6000 · 96GB"],
+        ["TRAIN", "PyTorch · Transformers · PEFT · DeepSpeed"],
+        ["SERVE", "vLLM · Medusa · FP8 / AWQ quant · CUDA"],
+        ["MODELS", "Qwen · GLM · DeepSeek · Llama"],
+        ["3D", "3D Gaussian Splatting · WebGL · Three.js"],
+        ["WEB", "Next.js · TypeScript · Prisma · PostgreSQL"],
+        ["INFRA", "Proxmox / VFIO · Docker · Tailscale · Cloudflare Tunnel"],
+        ["LANG", "Python · TypeScript · C++ · Shell"],
+      ],
+    },
+    ticker: ["Interpretability", "Activation Steering", "Multimodal", "VLM", "3D Generation", "3D Gaussian Splatting", "World Models", "Inference Optimization", "vLLM", "Quantization"],
+    aboutIndex: "01",
+    aboutLabel: "ABOUT",
+    aboutTitle: "I want to control the model, not just use it.",
+    aboutProse: [
+      "Hands-on. A high-schooler in Beijing. Four directions: interpretability, multimodal, 3D generation, inference optimization. One method: run it first, then take it apart.",
+      "When I am not writing code I keep fish and plants. Native coastal sea bream and pufferfish, a few office plants. Same thing as training a model. You watch a system grow, slowly.",
+    ],
+    stats: [
+      { value: "96", unit: "GB", label: "VRAM, self-hosted" },
+      { value: "36.7", unit: "tok/s", label: "GLM-5.3-Flash · one card" },
+      { value: "2", unit: "", label: "Models on Hugging Face" },
+      { value: "3", unit: "", label: "Running services" },
+    ],
+    researchIndex: "02",
+    researchLabel: "RESEARCH",
+    researchTitle: "Research",
+    researchIntro: "Four directions: understand what happens inside a model, let it see images and 3D worlds, then run it with as little compute as possible.",
+    projectsIndex: "03",
+    projectsLabel: "PROJECTS",
+    projectsTitle: "Open Source",
+    viewRepo: "GitHub",
+    viewModel: "Hugging Face",
+    clubIndex: "04",
+    clubLabel: "炼丹社 · LIANDAN SHE",
+    clubTitle: ["A student club. Our own GPU.", "Free for classmates."],
+    clubIntro: "炼丹社 (Liandan She) is the student AI club at SDSZ. We run our own RTX PRO 6000. Compute is limited, so the inference API is internal and invite-only. We also build campus platforms and take on AI integration work.",
+    online: "ONLINE",
+    inviteOnly: "INVITE ONLY",
+    interviewLabel: "INTERVIEW · 数字生命卡兹克",
+    interviewTitle: "Two high-schoolers, free AI for their classmates",
+    interviewText: "Two 16-year-olds plugged their own compute into a student club so more classmates could use AI for free.",
+    interviewDate: "2026.08.25 · BILIBILI",
+    interviewCta: "Watch",
+    contactIndex: "05",
+    contactLabel: "CONTACT",
+    contactTitle: ["Research, compute,", "or a project. Say hi."],
+    contactItems: { email: "EMAIL", github: "GITHUB", hf: "HUGGING FACE", wechat: "WECHAT", location: "LOCATION" },
+    footerBuilt: "BUILT WITH NEXT.JS · DEPLOYED ON GITHUB PAGES",
+    friendLinks: "FRIENDS",
+    copyright: "© 2026 张睿修 · Cerynitius",
+    backTop: "TOP ↑",
+  },
+} as const;
+
+export type Research = { id: string; title: Bi; text: Bi; tags: string[]; status: Bi; href?: string };
+
+export const research: Research[] = [
+  {
+    id: "01",
+    title: { zh: "概念的读出与控制", en: "Readout versus Control" },
+    text: {
+      zh: "一个概念在 LLM 里能被读出，不代表能被控制。研究读出方向和控制方向如何分离，跨模型家族做裁决。延伸工作 Drifting ITI：用 drift model 动态预测注意力头的操控向量。",
+      en: "That a concept can be read out of an LLM does not mean it can be controlled. Studying how readout and control directions separate, adjudicated across model families. Follow-up, Drifting ITI: predicting attention-head steering vectors dynamically with a drift model.",
+    },
+    tags: ["Interpretability", "Activation Steering", "ITI"],
+    status: { zh: "论文投稿中", en: "Paper under review" },
+  },
+  {
+    id: "02",
+    title: { zh: "多模态与动态特征扩展", en: "Multimodal and Dynamic Feature Expansion" },
+    text: {
+      zh: "以 Qwen2.5-VL-7B 为骨干，研究 VLM 的动态特征扩展（DFE），让视觉 token 的表征容量随输入内容变化。",
+      en: "Dynamic Feature Expansion (DFE) for VLMs on a Qwen2.5-VL-7B backbone, letting the representational capacity of visual tokens adapt to the input.",
+    },
+    tags: ["VLM", "Qwen2.5-VL", "Multimodal"],
+    status: { zh: "进行中", en: "In progress" },
+  },
+  {
+    id: "03",
+    title: { zh: "3D 生成与世界模型", en: "3D Generation and World Models" },
+    text: {
+      zh: "基于 3D Gaussian Splatting 的程序化无限环境，对比流式视频世界模型与持久化 3DGS 架构，长期目标是开放世界游戏。",
+      en: "Procedurally generated infinite environments on 3D Gaussian Splatting, comparing streaming video world models against persistent 3DGS, toward an open-world game.",
+    },
+    tags: ["3DGS", "World Models", "Procedural"],
+    status: { zh: "进行中", en: "In progress" },
+    href: "https://github.com/Cerynitius/endless-labyrinth",
+  },
+  {
+    id: "04",
+    title: { zh: "推理优化", en: "Inference Optimization" },
+    text: {
+      zh: "单张 RTX PRO 6000 上的大模型推理：offload 性能补丁、量化敏感性、vLLM 服务化。GLM-5.3-Flash 从 17.8 提到 36.7 tok/s。",
+      en: "Large-model inference on a single RTX PRO 6000: offload performance patches, quantization sensitivity and vLLM serving. GLM-5.3-Flash from 17.8 to 36.7 tok/s.",
+    },
+    tags: ["vLLM", "Quantization", "Offload"],
+    status: { zh: "持续", en: "Ongoing" },
+    href: "https://github.com/Cerynitius/freetoken-ox-boost",
+  },
+  {
+    id: "05",
+    title: { zh: "循环 Transformer", en: "Recurrent Transformers" },
+    text: {
+      zh: "训练 51M 的序列循环 Transformer-XL 变体和 110M 的 Universal Transformer + ACT，研究深度循环与序列循环的权衡，以及外部记忆能否移动算力质量的 Pareto 前沿。",
+      en: "Trained a 51M sequence-recurrent Transformer-XL variant and a 110M Universal Transformer with ACT. Depth versus sequence recurrence, and whether external memory can move the compute-quality Pareto frontier.",
+    },
+    tags: ["Universal Transformer", "ACT", "Memory"],
+    status: { zh: "模型已发布", en: "Models released" },
+    href: "https://huggingface.co/Hippocrene/recurrent-transformer-0.1b-e0.4b",
+  },
+];
+
+export type Project = {
+  id: string;
+  slug: string;
+  name: string;
+  text: Bi;
+  stack: string[];
+  href: string;
+  kind?: "repo" | "model";
+  featured?: boolean;
+};
+
+export const projects: Project[] = [
+  {
+    id: "01",
+    slug: "freetoken-ox-boost",
+    name: "freetoken-ox-boost",
+    text: {
+      zh: "FreeToken v0.1.2 的 GLM-5.3-Flash 适配与 offload 性能补丁。单张 RTX PRO 6000 上 17.8 → 36.7 tok/s。",
+      en: "GLM-5.3-Flash adaptation and offload performance patches for FreeToken v0.1.2. 17.8 → 36.7 tok/s on a single RTX PRO 6000.",
+    },
+    stack: ["Python", "vLLM", "CUDA", "Offload"],
+    href: "https://github.com/Cerynitius/freetoken-ox-boost",
+    featured: true,
+  },
+  {
+    id: "02",
+    slug: "endless-labyrinth",
+    name: "endless-labyrinth",
+    text: {
+      zh: "基于 3D Gaussian Splatting 的程序化无限环境 demo。长期目标是一个开放世界游戏。",
+      en: "A procedurally generated infinite environment built on 3D Gaussian Splatting. Long-term goal: an open-world game.",
+    },
+    stack: ["3DGS", "World Model", "WebGL", "Procedural"],
+    href: "https://github.com/Cerynitius/endless-labyrinth",
+  },
+  {
+    id: "03",
+    slug: "recurrent-transformer",
+    name: "recurrent-transformer-0.1b",
+    text: {
+      zh: "110M 参数的 Universal Transformer + ACT 模型，发布在 Hugging Face。",
+      en: "A 110M-parameter Universal Transformer with ACT, released on Hugging Face.",
+    },
+    stack: ["PyTorch", "ACT", "HF"],
+    href: "https://huggingface.co/Hippocrene/recurrent-transformer-0.1b-e0.4b",
+    kind: "model",
+  },
+  {
+    id: "04",
+    slug: "api-dojo",
+    name: "api-dojo",
+    text: {
+      zh: "pwn.college 式闯关教程，从零教会新手真正调用 AI API，由炼丹社 freeapi 陪练。",
+      en: "A pwn.college-style course that teaches beginners to actually call AI APIs, backed by the club's free API.",
+    },
+    stack: ["HTML", "Tutorial", "OpenAI API"],
+    href: "https://github.com/Cerynitius/api-dojo",
+  },
+  {
+    id: "05",
+    slug: "tree-of-thought",
+    name: "Tree_Of_Thought",
+    text: {
+      zh: "Tree of Thoughts 推理范式的实现与实验。",
+      en: "An implementation of, and experiments on, the Tree of Thoughts reasoning paradigm.",
+    },
+    stack: ["Python", "LLM", "Search"],
+    href: "https://github.com/Cerynitius/Tree_Of_Thought",
+  },
+  {
+    id: "06",
+    slug: "agent-team",
+    name: "agent_team",
+    text: {
+      zh: "多智能体协作系统的设计与原型。",
+      en: "Design and prototypes for multi-agent collaboration systems.",
+    },
+    stack: ["Python", "Multi-agent", "Orchestration"],
+    href: "https://github.com/Cerynitius/agent_team",
+  },
+  {
+    id: "07",
+    slug: "llm-train",
+    name: "llmTrain",
+    text: {
+      zh: "小规模语言模型的训练脚本与实践。",
+      en: "Training scripts and practice for small language models.",
+    },
+    stack: ["Python", "PyTorch", "Training"],
+    href: "https://github.com/Cerynitius/llmTrain",
+  },
+  {
+    id: "08",
+    slug: "minillm",
+    name: "MiniLLM-0.1B",
+    text: {
+      zh: "从零训练的 0.1B 参数小语言模型。",
+      en: "A 0.1B-parameter language model trained from scratch.",
+    },
+    stack: ["PyTorch", "Pretraining", "HF"],
+    href: "https://huggingface.co/Hippocrene/MiniLLM-0.1B",
+    kind: "model",
+  },
+];
+
+export type Service = { name: Bi; url: string; href?: string; text: Bi; tags: string[]; inviteOnly?: boolean };
+
+export const interview = {
+  href: "https://www.bilibili.com/video/BV12hhG6bEJw/",
+  channel: "数字生命卡兹克",
+};
+
+export const services: Service[] = [
+  {
+    name: { zh: "炼丹社 FreeAPI", en: "炼丹社 FreeAPI" },
+    url: "内部邀请制",
+    text: {
+      zh: "免费的 GPU 推理 API。算力有限，内部邀请制使用。开放无限制版权重推理，赋能网安测试。",
+      en: "A free GPU inference API. Compute is limited, so access is internal and invite-only. Serves unrestricted-weight inference to support cybersecurity testing.",
+    },
+    tags: ["vLLM", "OpenAI-compatible", "Invite only"],
+    inviteOnly: true,
+  },
+  {
+    name: { zh: "API Dojo", en: "API Dojo" },
+    url: "dojo.groovin.cn",
+    href: "https://dojo.groovin.cn",
+    text: { zh: "闯关式 AI API 教程，配合 FreeAPI 实战。与 Alumin-Hydro 合作。", en: "Level-based AI API course, paired with FreeAPI for practice. Built with Alumin-Hydro." },
+    tags: ["Tutorial", "pwn.college style"],
+  },
+  {
+    name: { zh: "SDSZ 校园社区", en: "SDSZ Campus Community" },
+    url: "sdsz.groovin.cn",
+    href: "https://sdsz.groovin.cn",
+    text: { zh: "面向 SDSZ 学生的校园社区平台。与 Alumin-Hydro 共同维护。", en: "A campus community platform for SDSZ students. Maintained with Alumin-Hydro." },
+    tags: ["Next.js", "Prisma", "Community"],
+  },
+];
+
+export const friendLinks = [
+  { name: "Alumin-Hydro", href: "https://github.com/Alumin-Hydro" },
+  { name: "Groovin", href: "https://groovin.cn" },
+];
