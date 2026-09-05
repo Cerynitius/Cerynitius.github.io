@@ -43,17 +43,13 @@ h1, h2, h3 { margin: 0; font-weight: 700; }
 /* ── custom cursor ── */
 html.has-cursor, html.has-cursor a, html.has-cursor button, html.has-cursor input, html.has-cursor label { cursor: none; }
 #cur-dot, #cur-ring { position: fixed; top: 0; left: 0; z-index: 9999; pointer-events: none; border-radius: 50%; opacity: 0; will-change: transform; }
-/* white + difference blend: always contrasts, never hidden by any background */
-#cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: #fff; mix-blend-mode: difference; transition: opacity .25s ease, width .2s ease, height .2s ease, margin .2s ease; }
-#cur-ring { width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 1.5px solid #fff; background: transparent; mix-blend-mode: difference; transition: opacity .25s ease, width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), background .3s ease; }
+/* solid pink cursor everywhere */
+#cur-dot { width: 6px; height: 6px; margin: -3px 0 0 -3px; background: #ff2e88; transition: opacity .25s ease, width .2s ease, height .2s ease, margin .2s ease; }
+#cur-ring { width: 34px; height: 34px; margin: -17px 0 0 -17px; border: 1.5px solid #ff2e88; background: transparent; transition: opacity .25s ease, width .3s var(--ease), height .3s var(--ease), margin .3s var(--ease), background .3s ease; }
 html.cursor-visible #cur-dot, html.cursor-visible #cur-ring { opacity: 1; }
-html.cursor-hover #cur-ring { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(255, 255, 255, .12); }
+html.cursor-hover #cur-ring { width: 56px; height: 56px; margin: -28px 0 0 -28px; background: rgba(255, 46, 136, .14); }
 html.cursor-hover #cur-dot { width: 4px; height: 4px; margin: -2px 0 0 -2px; }
 html.cursor-down #cur-ring { width: 24px; height: 24px; margin: -12px 0 0 -12px; }
-/* on the green club section: solid pink, no blend */
-html.cursor-pink #cur-dot { background: #ff2e88; mix-blend-mode: normal; }
-html.cursor-pink #cur-ring { border-color: #ff2e88; mix-blend-mode: normal; }
-html.cursor-pink.cursor-hover #cur-ring { background: rgba(255, 46, 136, .14); }
 @media (hover: none), (pointer: coarse) { #cur-dot, #cur-ring { display: none; } }
 
 /* ── nav ── */

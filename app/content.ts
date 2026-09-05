@@ -103,7 +103,7 @@ export const ui = {
     heroLabel: "CERYNITIUS — BEIJING, CN",
     heroTitle: ["Insight", "Ruixiu Zhang"],
     heroSub: "Take the model apart. Then make it run faster.",
-    heroText: "High-school developer. Focused on interpretability, multimodal models, 3D generation and inference optimization. I run 炼丹社, a student AI club, and do research with a university lab group.",
+    heroText: "High-school developer. Focused on interpretability, multimodal models, 3D generation and inference optimization. I run Alchemy, a student AI club, and do research with a university lab group.",
     heroButtons: { projects: "Projects", contact: "Contact" },
     spec: {
       title: "SPEC SHEET",
@@ -111,7 +111,7 @@ export const ui = {
         ["ROLE", "Research / Engineering"],
         ["FOCUS", "Interpretability · Multimodal · 3D Gen · Inference"],
         ["SCHOOL", "SDSZ International"],
-        ["CLUB", "炼丹社 · Lead"],
+        ["CLUB", "Alchemy · Lead"],
         ["LAB", "University research group"],
         ["TRAIN", "PyTorch · Transformers · native FP8 training · DPO · RAG"],
         ["SERVE", "vLLM · FreeToken hand-rolled support · Medusa · NVFP4 quant · CUDA"],
@@ -131,7 +131,7 @@ export const ui = {
     aboutTraits: "ENGINEERING · ADAPTABLE · LIKES A HARD PROBLEM",
     aboutBlocks: [
       { label: "Background", text: "Beijing, high school. Research with a university lab group, an algorithm internship, and lyric generation models for a music company." },
-      { label: "Community", text: "Founded and run 炼丹社, the school AI club. 10+ active members, ongoing tech sharing and collaboration." },
+      { label: "Community", text: "Founded and run Alchemy, the school AI club. 10+ active members, ongoing tech sharing and collaboration." },
       { label: "Research", text: "Model training, agent systems, interpretability, multimodal, 3D generation and representation analysis." },
       { label: "Off the keyboard", text: "Native coastal fish and plants. Same as training a model. You watch a system grow, slowly." },
     ],
@@ -152,9 +152,9 @@ export const ui = {
     viewRepo: "GitHub",
     viewModel: "Hugging Face",
     clubIndex: "04",
-    clubLabel: "炼丹社 · ALCHEMY",
+    clubLabel: "ALCHEMY",
     clubTitle: ["A student club. Our own GPU.", "Free for classmates."],
-    clubIntro: "炼丹社 (Alchemy) is the student AI club at SDSZ. We run our own RTX PRO 6000. Compute is limited, so the inference API is internal and invite-only. We also build campus platforms and take on AI integration work.",
+    clubIntro: "Alchemy is the student AI club at SDSZ. We run our own RTX PRO 6000. Compute is limited, so the inference API is internal and invite-only. We also build campus platforms and take on AI integration work.",
     online: "ONLINE",
     inviteOnly: "INVITE ONLY",
     interviewLabel: "INTERVIEW · 数字生命卡兹克",
@@ -322,7 +322,7 @@ export const interview = {
 
 export const services: Service[] = [
   {
-    name: { zh: "炼丹社 FreeAPI", en: "炼丹社 FreeAPI" },
+    name: { zh: "炼丹社 FreeAPI", en: "Alchemy FreeAPI" },
     url: "internal",
     text: {
       zh: "免费的 GPU 推理 API。算力有限，内部邀请制使用。开放无限制版权重推理，赋能网安测试。",
@@ -335,7 +335,7 @@ export const services: Service[] = [
     name: { zh: "SDSZ 校园社区", en: "SDSZ Campus Community" },
     url: "sdsz.groovin.cn",
     href: "https://sdsz.groovin.cn",
-    text: { zh: "面向 SDSZ 学生的校园社区平台。与 Alumin-Hydro 共同维护。", en: "A campus community platform for SDSZ students. Maintained with Alumin-Hydro." },
+    text: { zh: "面向 SDSZ 学生的校园社区平台。由我独立维护。", en: "A campus community platform for SDSZ students. Maintained solely by me." },
     tags: ["Next.js", "Prisma", "Community"],
   },
 ];
