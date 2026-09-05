@@ -9,6 +9,48 @@ function Arrow({ size = 14 }: { size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" /></svg>;
 }
 
+function Cursor() {
+  useEffect(() => {
+    if (!window.matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const dot = document.getElementById("cur-dot");
+    const ring = document.getElementById("cur-ring");
+    if (!dot || !ring) return;
+    document.documentElement.classList.add("has-cursor");
+    let x = -100, y = -100, rx = -100, ry = -100, raf = 0, visible = false;
+    const move = (e: MouseEvent) => {
+      x = e.clientX; y = e.clientY;
+      if (!visible) { visible = true; rx = x; ry = y; document.documentElement.classList.add("cursor-visible"); }
+      dot.style.transform = `translate(${x}px, ${y}px)`;
+      const t = (e.target as HTMLElement | null)?.closest?.("a, button, [role=button], input, textarea, select, label");
+      document.documentElement.classList.toggle("cursor-hover", !!t);
+    };
+    const leave = () => { visible = false; document.documentElement.classList.remove("cursor-visible"); };
+    const down = () => document.documentElement.classList.add("cursor-down");
+    const up = () => document.documentElement.classList.remove("cursor-down");
+    const loop = () => {
+      const k = reduce ? 1 : 0.18;
+      rx += (x - rx) * k; ry += (y - ry) * k;
+      ring.style.transform = `translate(${rx}px, ${ry}px)`;
+      raf = requestAnimationFrame(loop);
+    };
+    raf = requestAnimationFrame(loop);
+    window.addEventListener("mousemove", move, { passive: true });
+    document.addEventListener("mouseleave", leave);
+    window.addEventListener("mousedown", down);
+    window.addEventListener("mouseup", up);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("mousemove", move);
+      document.removeEventListener("mouseleave", leave);
+      window.removeEventListener("mousedown", down);
+      window.removeEventListener("mouseup", up);
+      document.documentElement.classList.remove("has-cursor", "cursor-visible", "cursor-hover", "cursor-down");
+    };
+  }, []);
+  return <><div id="cur-dot" aria-hidden="true" /><div id="cur-ring" aria-hidden="true" /></>;
+}
+
 function SectionHead({ index, label, children }: { index: string; label: string; children?: React.ReactNode }) {
   return (
     <div className="section-head reveal">
@@ -71,6 +113,7 @@ export default function Home() {
 
   return (
     <main data-lang={lang}>
+      <Cursor />
       <header className={`nav${scrolled ? " scrolled" : ""}${menuOpen ? " open" : ""}`}>
         <a className="brand" href="#home"><i className="mark" /><span>{OWNER.handle.toUpperCase()}</span></a>
         <nav aria-label="main">
@@ -103,7 +146,6 @@ export default function Home() {
           <figure className="hero-art">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src={OWNER.art} alt="Athena" width={1200} height={1290} />
-            <figcaption className="mono dim">{OWNER.artCredit}</figcaption>
           </figure>
         </div>
       </section>
@@ -121,9 +163,11 @@ export default function Home() {
           <div className="about">
             <div className="about-main reveal">
               <h2 className="statement">{t.aboutTitle}</h2>
-              <div className="about-text">
-                {t.aboutProse.map((p, i) => <p key={i}>{p}</p>)}
-              </div>
+              <p className="mono label traits">{t.aboutTraits}</p>
+              <dl className="about-blocks">
+                {t.aboutBlocks.map((b) => <div key={b.label}><dt className="mono">{b.label}</dt><dd>{b.text}</dd></div>)}
+              </dl>
+              <p className="about-closing">{t.aboutClosing}</p>
             </div>
             <div className="reveal">
           <aside className="spec" aria-label={t.spec.title}>
