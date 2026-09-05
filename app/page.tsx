@@ -22,11 +22,12 @@ function Cursor() {
       x = e.clientX; y = e.clientY;
       if (!visible) { visible = true; rx = x; ry = y; document.documentElement.classList.add("cursor-visible"); }
       dot.style.transform = `translate(${x}px, ${y}px)`;
-      const t = (e.target as HTMLElement | null)?.closest?.("a, button, [role=button], input, textarea, select, label");
+      const el = e.target as HTMLElement | null;
+      const t = el?.closest?.("a, button, [role=button], input, textarea, select, label");
       document.documentElement.classList.toggle("cursor-hover", !!t);
-      document.documentElement.classList.toggle("cursor-invert", !!(e.target as HTMLElement | null)?.closest?.(".club"));
+      document.documentElement.classList.toggle("cursor-pink", !!el?.closest?.("#club"));
     };
-    const leave = () => { visible = false; document.documentElement.classList.remove("cursor-visible", "cursor-invert"); };
+    const leave = () => { visible = false; document.documentElement.classList.remove("cursor-visible"); };
     const down = () => document.documentElement.classList.add("cursor-down");
     const up = () => document.documentElement.classList.remove("cursor-down");
     const loop = () => {
@@ -46,7 +47,7 @@ function Cursor() {
       document.removeEventListener("mouseleave", leave);
       window.removeEventListener("mousedown", down);
       window.removeEventListener("mouseup", up);
-      document.documentElement.classList.remove("has-cursor", "cursor-visible", "cursor-hover", "cursor-down", "cursor-invert");
+      document.documentElement.classList.remove("has-cursor", "cursor-visible", "cursor-hover", "cursor-down", "cursor-pink");
     };
   }, []);
   return <><div id="cur-dot" aria-hidden="true" /><div id="cur-ring" aria-hidden="true" /></>;
