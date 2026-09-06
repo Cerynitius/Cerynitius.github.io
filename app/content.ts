@@ -31,8 +31,8 @@ export const ui = {
     heroTitle: ["Insight", "张睿修"],
     heroSub: "先看懂可解释性，再把推理压进一张卡。",
     heroText: "北京高中生。用操控向量把语言模型里的概念读出来，再用量化和单卡推理把它跑便宜。主理学生 AI 社团炼丹社。",
-    heroQuote: "They shall not envy those of Hippocrene.",
-    heroQuoteSrc: "Ode to a Nightingale",
+    heroQuote: "Ὁ δὲ χρυσὸς αἰθόμενον πῦρ ἅτε διαπρέπει νυκτί.",
+    heroQuoteSrc: "Pindar · Olympian I",
     heroButtons: { projects: "查看项目", contact: "联系我" },
     spec: {
       title: "SPEC SHEET",
@@ -106,8 +106,8 @@ export const ui = {
     heroTitle: ["Insight", "Ruixiu Zhang"],
     heroSub: "Interpretability up front, inference on one card.",
     heroText: "Beijing high-schooler. I read concepts out of language models with steering vectors, then make them cheap to serve with quantization and single-GPU inference. I run our student AI club, Alchemy.",
-    heroQuote: "They shall not envy those of Hippocrene.",
-    heroQuoteSrc: "Ode to a Nightingale",
+    heroQuote: "Ὁ δὲ χρυσὸς αἰθόμενον πῦρ ἅτε διαπρέπει νυκτί.",
+    heroQuoteSrc: "Pindar · Olympian I",
     heroButtons: { projects: "Projects", contact: "Contact" },
     spec: {
       title: "SPEC SHEET",
