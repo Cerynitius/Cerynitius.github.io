@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from "react";
 import { OWNER, friendLinks, interview, projects, research, services, ui, type Lang } from "./content";
 
-const LANG_KEY = "site-lang";
-
 function Arrow({ size = 14 }: { size?: number }) {
   return <svg width={size} height={size} viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" strokeWidth="1.5" strokeLinecap="square" /></svg>;
 }
@@ -188,20 +186,10 @@ function SectionHead({ index, label, children }: { index: string; label: string;
 }
 
 export default function Home() {
-  const [lang, setLang] = useState<Lang>("zh");
+  const lang: Lang = "en";
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const t = ui[lang];
-
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem(LANG_KEY);
-      if (saved === "en" || saved === "zh") setLang(saved);
-      else if (!navigator.language.toLowerCase().startsWith("zh")) setLang("en");
-    } catch {}
-  }, []);
-
-  useEffect(() => { document.documentElement.lang = lang === "zh" ? "zh-CN" : "en"; }, [lang]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16);
@@ -218,13 +206,7 @@ export default function Home() {
     }, { rootMargin: "0px 0px -6% 0px", threshold: 0.05 });
     els.forEach((el) => io.observe(el));
     return () => io.disconnect();
-  }, [lang]);
-
-  const toggleLang = () => {
-    const next: Lang = lang === "zh" ? "en" : "zh";
-    setLang(next);
-    try { window.localStorage.setItem(LANG_KEY, next); } catch {}
-  };
+  }, []);
 
   const navItems: [string, string, string][] = [
     ["#about", "01", t.nav.about],
@@ -248,7 +230,6 @@ export default function Home() {
         <div className="nav-right">
           <a className="sq ghost" href={OWNER.github} target="_blank" rel="noreferrer" aria-label="GitHub">GH</a>
           <a className="sq ghost" href={OWNER.instagram} target="_blank" rel="noreferrer" aria-label="Instagram">IG</a>
-          <button className="sq" type="button" onClick={toggleLang} aria-label={t.langAria}>{t.langButton}</button>
           <button className="sq burger" type="button" onClick={() => setMenuOpen((v) => !v)} aria-label="menu" aria-expanded={menuOpen}>{menuOpen ? "×" : "≡"}</button>
         </div>
       </header>
@@ -263,8 +244,6 @@ export default function Home() {
               <span className="word">{t.heroTitle[0]}</span>
               <span className="name">{t.heroTitle[1]}<i className="cursor" aria-hidden="true" /></span>
             </h1>
-            <p className="hero-sub">{t.heroSub}</p>
-            <p className="hero-text">{t.heroText}</p>
             <div className="hero-actions">
               <a className="btn primary" href="#projects">{t.heroButtons.projects}<Arrow /></a>
               <a className="btn" href="#contact">{t.heroButtons.contact}<Arrow /></a>

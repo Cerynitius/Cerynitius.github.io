@@ -29,8 +29,8 @@ export const ui = {
     langAria: "Switch to English",
     heroLabel: "CERYNITIUS — BEIJING, CN",
     heroTitle: ["Insight", "张睿修"],
-    heroSub: "把模型拆开看，再让它跑得更快。",
-    heroText: "高中生。关注可解释性、多模态、3D 生成和推理优化。主理炼丹社，跟随高校课题组做研究。",
+    heroSub: "先看懂可解释性，再把推理压进一张卡。",
+    heroText: "北京高中生。用操控向量把语言模型里的概念读出来，再用量化和单卡推理把它跑便宜。主理学生 AI 社团炼丹社。",
     heroButtons: { projects: "查看项目", contact: "联系我" },
     spec: {
       title: "SPEC SHEET",
@@ -102,8 +102,8 @@ export const ui = {
     langAria: "切换到中文",
     heroLabel: "CERYNITIUS — BEIJING, CN",
     heroTitle: ["Insight", "Ruixiu Zhang"],
-    heroSub: "Take the model apart. Then make it run faster.",
-    heroText: "High-school developer. Focused on interpretability, multimodal models, 3D generation and inference optimization. I run Alchemy, a student AI club, and do research with a university lab group.",
+    heroSub: "Interpretability up front, inference on one card.",
+    heroText: "Beijing high-schooler. I read concepts out of language models with steering vectors, then make them cheap to serve with quantization and single-GPU inference. I run our student AI club, Alchemy.",
     heroButtons: { projects: "Projects", contact: "Contact" },
     spec: {
       title: "SPEC SHEET",

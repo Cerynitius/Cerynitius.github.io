@@ -84,7 +84,7 @@ html.cursor-down #cur-ring { width: 24px; height: 24px; margin: -12px 0 0 -12px;
 .hero h1 { font-size: clamp(64px, 9vw, 136px); line-height: .96; }
 .hero h1 span { display: block; opacity: 0; transform: translateY(24px); animation: rise .9s var(--ease) forwards; }
 .hero h1 .word { letter-spacing: -.05em; }
-.hero h1 .name { margin-top: .08em; font-size: .52em; font-weight: 600; letter-spacing: -.02em; color: var(--green); animation-delay: .15s; }
+.hero h1 .name { margin-top: .55em; font-size: .52em; font-weight: 600; letter-spacing: -.02em; color: var(--green); animation-delay: .15s; }
 main[data-lang="zh"] .hero h1 .name { font-size: .5em; letter-spacing: .02em; }
 .hero-sub { margin-top: 26px; font-family: var(--font-display); font-weight: 600; font-size: clamp(18px, 1.6vw, 24px); letter-spacing: -.02em; color: var(--white); opacity: 0; animation: rise .9s var(--ease) .35s forwards; }
 .block { display: block; }
