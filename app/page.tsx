@@ -244,6 +244,10 @@ export default function Home() {
               <span className="word">{t.heroTitle[0]}</span>
               <span className="name">{t.heroTitle[1]}<i className="cursor" aria-hidden="true" /></span>
             </h1>
+            <figure className="hero-quote">
+              <blockquote>{t.heroQuote}</blockquote>
+              <figcaption><span className="mono">— {t.heroQuoteSrc}</span></figcaption>
+            </figure>
             <div className="hero-actions">
               <a className="btn primary" href="#projects">{t.heroButtons.projects}<Arrow /></a>
               <a className="btn" href="#contact">{t.heroButtons.contact}<Arrow /></a>
