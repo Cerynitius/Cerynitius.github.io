@@ -349,6 +349,7 @@ export default function Home() {
             <h2 className="statement reveal">{t.clubTitle.map((l, i) => <span key={i} className="block">{l}</span>)}</h2>
             <p className="club-intro reveal">{t.clubIntro}</p>
           </div>
+          <div className="club-cards">
           <a className="interview reveal" href={interview.href} target="_blank" rel="noreferrer">
             <div className="interview-play" aria-hidden="true"><i /></div>
             <div className="interview-body">
@@ -372,6 +373,7 @@ export default function Home() {
                 ? <a className="service reveal" href={s.href} target="_blank" rel="noreferrer" key={s.url}>{body}</a>
                 : <div className="service reveal static" key={s.url}>{body}</div>;
             })}
+          </div>
           </div>
         </div>
       </section>

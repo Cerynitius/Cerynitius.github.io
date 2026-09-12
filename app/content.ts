@@ -327,18 +327,11 @@ export const services: Service[] = [
     name: { zh: "炼丹社 FreeAPI", en: "Alchemy FreeAPI" },
     url: "internal",
     text: {
-      zh: "免费的 GPU 推理 API。算力有限，内部邀请制使用。开放无限制版权重推理，赋能网安测试。",
-      en: "A free GPU inference API. Compute is limited, so access is internal and invite-only. Serves unrestricted-weight inference to support cybersecurity testing.",
+      zh: "免费的 GPU 推理 API。算力有限，内部邀请制使用。提供定制权重推理。",
+      en: "A free GPU inference API. Compute is limited, so access is internal and invite-only. Serves custom-weight inference.",
     },
     tags: ["vLLM", "OpenAI-compatible", "Invite only"],
     inviteOnly: true,
-  },
-  {
-    name: { zh: "SDSZ 校园社区", en: "SDSZ Campus Community" },
-    url: "sdsz.groovin.cn",
-    href: "https://sdsz.groovin.cn",
-    text: { zh: "面向 SDSZ 学生的校园社区平台。由 Alumin-Hydro 独立维护。", en: "A campus community platform for SDSZ students. Maintained solely by Alumin-Hydro." },
-    tags: ["Next.js", "Prisma", "Community"],
   },
 ];
 

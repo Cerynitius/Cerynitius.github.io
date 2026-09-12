@@ -201,6 +201,10 @@ main[data-lang="zh"] .hero h1 .name { font-size: .5em; letter-spacing: .02em; }
 .club-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 80px); align-items: end; margin-bottom: clamp(36px, 5vw, 56px); }
 .club .statement { color: var(--black); font-size: clamp(30px, 4vw, 56px); letter-spacing: -.03em; line-height: 1.08; }
 .club-intro { color: rgba(0, 0, 0, .75); font-size: 15px; line-height: 1.75; }
+.club-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
+.club-cards .interview { margin-bottom: 0; height: 100%; }
+.club-cards .services { grid-template-columns: 1fr; height: 100%; }
+.club-cards .service { height: 100%; }
 .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 10px; }
 .service { display: flex; flex-direction: column; min-height: 240px; padding: 20px 20px 18px; background: var(--black); color: var(--white); border: 1px solid var(--black); transition: transform .35s var(--ease), border-color .25s ease; }
 .service:hover { transform: translateY(-4px); border-color: var(--white); }
@@ -295,6 +299,7 @@ a.crow:hover strong { color: var(--green); }
   .stat:nth-child(even) { border-right: 0; padding-left: 16px; }
   .stat:nth-child(odd) { padding-left: 0; }
   .services { grid-template-columns: 1fr; }
+  .club-cards { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 600px) {
