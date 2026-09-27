@@ -11,7 +11,7 @@ export const OWNER = {
   nameEn: "Ruixiu Zhang",
   handle: "Cerynitius",
   art: "/athena.png",
-  avatar: "/avatar.svg", // 换成真实头像 / replace with a real photo in public/
+  avatar: "/avatar.svg", 
   siteRepo: "https://github.com/Cerynitius/Cerynitius.github.io",
   github: "https://github.com/Cerynitius",
   huggingface: "https://huggingface.co/Hippocrene",
@@ -336,8 +336,7 @@ export const services: Service[] = [
 ];
 
 export const friendLinks = [
-  { name: "Groovin", href: "https://groovin.cn" },
-  { name: "Alumin-Hydro", href: "https://github.com/Alumin-Hydro" },
-  { name: "水澄Mizu", href: "https://mizusumi.com" },
-  { name: "ChromiteCr", href: "https://github.com/ChromiteCr" },
+  { name: "Diankun Gao", href: "https://github.com/ChromiteCr" },
+  { name: "Zhiwei Li", href: "https://github.com/lzwjava" },
+
 ];
