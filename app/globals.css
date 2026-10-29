@@ -290,7 +290,8 @@ a.crow:hover strong { color: var(--green); }
   .about-eel { max-width: 340px; margin-top: 20px; }
   .spec dl > div { padding: 8px 18px; }
   /* research: one line titles, two line bodies */
-  .row { grid-template-columns: 44px minmax(0, 3fr) minmax(0, 7fr) auto; padding: 18px 0; }
+  .row { grid-template-columns: 44px minmax(0, 3fr) minmax(0, 7fr) 184px; padding: 18px 0; }
+  .row-end { justify-self: end; }
   .row h3 { font-size: clamp(19px, 1.6vw, 23px); }
   .row-body p:first-child { font-size: 14px; line-height: 1.65; }
   .tags { margin-top: 8px; }
