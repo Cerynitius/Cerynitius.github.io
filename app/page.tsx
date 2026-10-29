@@ -350,30 +350,27 @@ export default function Home() {
             <p className="club-intro reveal">{t.clubIntro}</p>
           </div>
           <div className="club-cards">
-          <a className="interview reveal" href={interview.href} target="_blank" rel="noreferrer">
-            <div className="interview-play" aria-hidden="true"><i /></div>
-            <div className="interview-body">
-              <p className="mono">{t.interviewLabel}</p>
+            <a className="club-card reveal" href={interview.href} target="_blank" rel="noreferrer">
+              <div className="cc-top mono"><span>{t.interviewLabel} · BILIBILI</span><span className="live"><i className="play" />{t.interviewDate.split(" · ")[0]}</span></div>
               <h3>{t.interviewTitle}</h3>
-              <p className="interview-text">{t.interviewText}</p>
-            </div>
-            <div className="interview-end mono"><span>{t.interviewDate}</span><span className="cta">{t.interviewCta}<Arrow /></span></div>
-          </a>
-          <div className="services">
+              <p>{t.interviewText}</p>
+              <ul className="cc-points">{t.interviewPoints.map((x) => <li key={x}>{x}</li>)}</ul>
+              <div className="card-foot"><span className="mono tags">Video / Club</span><span className="cta mono">{t.interviewCta}<Arrow /></span></div>
+            </a>
             {services.map((s) => {
               const body = (
                 <>
-                  <div className="service-top mono"><span>{s.url}</span><span className="live"><i />{s.inviteOnly ? t.inviteOnly : t.online}</span></div>
+                  <div className="cc-top mono"><span>PARTNERS</span><span className="live"><i />{s.inviteOnly ? t.inviteOnly : t.online}</span></div>
                   <h3>{s.name[lang]}</h3>
                   <p>{s.text[lang]}</p>
+                  <ul className="cc-points">{s.points[lang].map((x) => <li key={x}>{x}</li>)}</ul>
                   <div className="card-foot"><span className="mono tags">{s.tags.join(" / ")}</span>{s.href ? <Arrow /> : null}</div>
                 </>
               );
               return s.href
-                ? <a className="service reveal" href={s.href} target="_blank" rel="noreferrer" key={s.url}>{body}</a>
-                : <div className="service reveal static" key={s.url}>{body}</div>;
+                ? <a className="club-card reveal" href={s.href} target="_blank" rel="noreferrer" key={s.url}>{body}</a>
+                : <div className="club-card reveal static" key={s.url}>{body}</div>;
             })}
-          </div>
           </div>
         </div>
       </section>

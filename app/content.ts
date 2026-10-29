@@ -89,6 +89,7 @@ export const ui = {
     interviewText: "两位 16 岁的高中生把自己的算力接入社团，只为让更多同学能免费用上 AI。",
     interviewDate: "2026.08.25 · BILIBILI",
     interviewCta: "观看视频",
+    interviewPoints: ["用社团自己的算力，让同学免费用上 AI", "GPU 服务器由学生自己搭建和维护", "数字生命卡兹克专题报道"],
     contactIndex: "05",
     contactLabel: "CONTACT",
     contactTitle: ["研究讨论、算力合作、", "项目合作，都欢迎。"],
@@ -164,6 +165,7 @@ export const ui = {
     interviewText: "Two 16-year-olds plugged their own compute into a student club so more classmates could use AI for free.",
     interviewDate: "2026.08.25 · BILIBILI",
     interviewCta: "Watch",
+    interviewPoints: ["Free AI for classmates, run on the club's own compute", "GPU servers built and maintained by students", "Featured by a Bilibili AI channel"],
     contactIndex: "05",
     contactLabel: "CONTACT",
     contactTitle: ["Research, compute,", "or a project. Say hi."],
@@ -336,7 +338,7 @@ export const projects: Project[] = [
   },
 ];
 
-export type Service = { name: Bi; url: string; href?: string; text: Bi; tags: string[]; inviteOnly?: boolean };
+export type Service = { name: Bi; url: string; href?: string; text: Bi; points: { zh: string[]; en: string[] }; tags: string[]; inviteOnly?: boolean };
 
 export const interview = {
   href: "https://www.bilibili.com/video/BV12hhG6bEJw/",
@@ -348,8 +350,12 @@ export const services: Service[] = [
     name: { zh: "GPUShare", en: "GPUShare" },
     url: "internal",
     text: {
-      zh: "把我们的工作站 GPU 共享给合作伙伴，并提供计算优化支持：找瓶颈、调推理和训练、写定制算子，帮项目更快推进。邀请制。",
-      en: "We share our workstation GPUs with partner projects and back them with compute optimisation: profiling bottlenecks, tuning inference and training, writing custom kernels, so their work moves faster. Invite only.",
+      zh: "把我们的工作站 GPU 共享给合作伙伴，并提供计算优化支持，帮项目更快推进。",
+      en: "We share our workstation GPUs with partner projects and back them with compute optimisation, so their work moves faster.",
+    },
+    points: {
+      zh: ["RTX PRO 6000、5000、4000 工作站 GPU 时间", "量出瓶颈，改、融合或手写 CUDA 算子", "推理与训练调优：vLLM、NVFP4 / FP8 量化"],
+      en: ["GPU time on RTX PRO 6000, 5000 and 4000 workstation cards", "Profiling bottlenecks, then changing, fusing or hand-writing CUDA kernels", "Inference and training tuning: vLLM, NVFP4 / FP8 quantisation"],
     },
     tags: ["GPU", "Optimisation", "Partners"],
     inviteOnly: true,
