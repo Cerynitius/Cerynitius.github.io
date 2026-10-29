@@ -3,18 +3,18 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://cerynitius.github.io"),
-  title: "张睿修 · Cerynitius",
-  description: "张睿修 (Cerynitius) 的个人主页。LLM 可解释性、推理基础设施、炼丹社、开源项目与联系方式。",
+  title: "Ruixiu Zhang · Cerynitius",
+  description: "Ruixiu Zhang (Cerynitius): LLM interpretability, inference infrastructure, the Alchemy AI club, open-source projects and contact.",
   icons: { icon: "/avatar.svg", apple: "/avatar.svg" },
   openGraph: {
-    title: "张睿修 · Cerynitius",
-    description: "LLM interpretability, inference infrastructure, 炼丹社, open-source projects and contact.",
+    title: "Ruixiu Zhang · Cerynitius",
+    description: "LLM interpretability, inference infrastructure, the Alchemy AI club, open-source projects and contact.",
     url: "https://cerynitius.github.io",
-    siteName: "张睿修 · Cerynitius",
-    locale: "zh_CN",
+    siteName: "Ruixiu Zhang · Cerynitius",
+    locale: "en_US",
     type: "website",
   },
-  twitter: { card: "summary", title: "张睿修 · Cerynitius", description: "LLM interpretability, inference infrastructure, 炼丹社, open-source projects." },
+  twitter: { card: "summary", title: "Ruixiu Zhang · Cerynitius", description: "LLM interpretability, inference infrastructure, the Alchemy AI club, open-source projects." },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

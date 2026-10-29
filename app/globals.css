@@ -264,6 +264,46 @@ a.crow:hover strong { color: var(--green); }
 .top { color: var(--white); }
 .top:hover { color: var(--green); }
 
+/* ── one screen per section (desktop): every section fits a 900 px tall viewport ── */
+@media (min-width: 1081px) {
+  .section { padding: clamp(56px, 7.5vh, 84px) 0; }
+  .section-head { margin-bottom: clamp(24px, 3.4vh, 36px); }
+  .section-title-row { margin-bottom: clamp(20px, 3vh, 32px); }
+  .h2 { font-size: clamp(34px, 3.8vw, 52px); }
+  /* about: compact blocks, eel beside the closing column instead of below it */
+  .about-blocks { margin-top: 22px; }
+  .about-blocks > div { padding: 11px 0; }
+  .about-blocks dd { font-size: 14.5px; line-height: 1.7; }
+  .about-eel { max-width: 340px; margin-top: 20px; }
+  .spec dl > div { padding: 8px 18px; }
+  /* research: one line titles, two line bodies */
+  .row { grid-template-columns: 44px minmax(0, 3fr) minmax(0, 7fr) auto; padding: 18px 0; }
+  .row h3 { font-size: clamp(19px, 1.6vw, 23px); }
+  .row-body p:first-child { font-size: 14px; line-height: 1.65; }
+  .tags { margin-top: 8px; }
+  /* project cards */
+  .card { min-height: 0; padding: 20px 20px 18px; }
+  .card-top { margin-bottom: 18px; }
+  .card-foot { padding-top: 18px; }
+  /* club + contact */
+  .club-grid { margin-bottom: clamp(24px, 3.4vh, 40px); }
+  .service { min-height: 200px; }
+  .contact-title { font-size: clamp(34px, 4.6vw, 64px); margin-bottom: clamp(24px, 3.4vh, 40px); }
+  .crow { padding: 14px 0; }
+}
+@media (min-width: 1081px) {
+  /* projects and club fill the screen: the card grids stretch to take the height */
+  #projects, #club { min-height: 100vh; display: flex; flex-direction: column; }
+  #projects > .wrap, #club > .wrap { flex: 1; display: flex; flex-direction: column; }
+  #projects .cards { flex: 1; grid-auto-rows: 1fr; }
+  #club .club-cards { flex: 1; }
+}
+@media (min-width: 1200px) {
+  .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .cards .card h3 { font-size: 19px; }
+  .cards .card p { font-size: 13.5px; line-height: 1.65; }
+}
+
 /* ── responsive ── */
 @media (max-width: 1080px) {
   .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
