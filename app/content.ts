@@ -157,7 +157,7 @@ export const ui = {
     clubIndex: "04",
     clubLabel: "Alchemy",
     clubTitle: ["A student club. Our own GPU.", "Free for classmates."],
-    clubIntro: "Alchemy is the student AI club at SDSZ. We run our own workstation cards. GPUShare opens that compute to partner projects by invitation. We also build campus platforms and take on AI integration work.",
+    clubIntro: "Alchemy is the student AI club at SDSZ. We run our own workstation cards. GPU Share opens that compute to partner projects by invitation. We also build campus platforms and take on AI integration work.",
     online: "ONLINE",
     inviteOnly: "INVITE ONLY",
     interviewLabel: "INTERVIEW",
@@ -347,7 +347,7 @@ export const interview = {
 
 export const services: Service[] = [
   {
-    name: { zh: "GPUShare", en: "GPUShare" },
+    name: { zh: "GPU Share", en: "GPU Share" },
     url: "internal",
     text: {
       zh: "把我们的工作站 GPU 共享给合作伙伴，并提供计算优化支持，帮项目更快推进。",
