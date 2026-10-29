@@ -211,10 +211,10 @@ a.club-card:hover { transform: translateY(-4px); border-color: var(--white); }
 .cc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; color: var(--green); letter-spacing: .1em; font-size: 11px; }
 .club-card .live i.play { width: 0; height: 0; background: none; box-shadow: none; animation: none; border-left: 7px solid var(--green); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
 .club-card h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 2vw, 28px); letter-spacing: -.02em; line-height: 1.2; color: var(--white); margin-bottom: 10px; }
-.club-card p { color: var(--muted); font-size: 14.5px; line-height: 1.7; }
-.cc-points { list-style: none; margin: 20px 0 0; padding: 0; border-top: 1px solid var(--line); }
-.cc-points li { position: relative; padding: 11px 0 11px 20px; border-bottom: 1px solid var(--line); color: var(--text); font-size: 14px; line-height: 1.5; }
-.cc-points li::before { content: ""; position: absolute; left: 0; top: 18px; width: 7px; height: 7px; background: var(--green); }
+.club-card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
+.cc-points { list-style: none; flex: 1; display: flex; flex-direction: column; margin: 22px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.cc-points li { position: relative; flex: 1; display: flex; align-items: center; min-height: 48px; padding: 10px 0 10px 22px; border-bottom: 1px solid var(--line); color: var(--text); font-size: 15px; line-height: 1.5; }
+.cc-points li::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; background: var(--green); }
 .club-card .card-foot { color: var(--green); }
 .club-card .cta { display: inline-flex; align-items: center; gap: 8px; color: var(--green); text-transform: uppercase; letter-spacing: .1em; font-size: 11px; }
 a.club-card:hover .card-foot svg { transform: translate(2px, -2px); }
