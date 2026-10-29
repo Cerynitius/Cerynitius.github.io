@@ -205,15 +205,15 @@ main[data-lang="zh"] .hero h1 .name { font-size: .5em; letter-spacing: .02em; }
 .club-cards .interview { margin-bottom: 0; height: 100%; }
 .club-cards .services { grid-template-columns: 1fr; height: 100%; }
 .club-cards .service { height: 100%; }
-.club-card { display: flex; flex-direction: column; height: 100%; padding: 24px 24px 20px; background: var(--black); color: var(--white); border: 1px solid var(--black); transition: transform .35s var(--ease), border-color .25s ease; }
+.club-card { display: flex; flex-direction: column; height: 100%; padding: 20px 22px 18px; background: var(--black); color: var(--white); border: 1px solid var(--black); transition: transform .35s var(--ease), border-color .25s ease; }
 a.club-card:hover { transform: translateY(-4px); border-color: var(--white); }
 .club-card.static { cursor: default; }
-.cc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 26px; color: var(--green); letter-spacing: .1em; font-size: 11px; }
+.cc-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; color: var(--green); letter-spacing: .1em; font-size: 11px; }
 .club-card .live i.play { width: 0; height: 0; background: none; box-shadow: none; animation: none; border-left: 7px solid var(--green); border-top: 4.5px solid transparent; border-bottom: 4.5px solid transparent; }
 .club-card h3 { font-family: var(--font-display); font-weight: 600; font-size: clamp(22px, 2vw, 28px); letter-spacing: -.02em; line-height: 1.2; color: var(--white); margin-bottom: 10px; }
-.club-card p { color: var(--muted); font-size: 15px; line-height: 1.7; }
-.cc-points { list-style: none; flex: 1; display: flex; flex-direction: column; margin: 22px 0 0; padding: 0; border-top: 1px solid var(--line); }
-.cc-points li { position: relative; flex: 1; display: flex; align-items: center; min-height: 48px; padding: 10px 0 10px 22px; border-bottom: 1px solid var(--line); color: var(--text); font-size: 15px; line-height: 1.5; }
+.club-card p { color: var(--muted); font-size: 14px; line-height: 1.65; }
+.cc-points { list-style: none; margin: 18px 0 0; padding: 0; border-top: 1px solid var(--line); }
+.cc-points li { position: relative; padding: 9px 0 9px 20px; border-bottom: 1px solid var(--line); color: var(--text); font-size: 14px; line-height: 1.5; }
 .cc-points li::before { content: ""; position: absolute; left: 0; top: 50%; width: 7px; height: 7px; margin-top: -3.5px; background: var(--green); }
 .club-card .card-foot { color: var(--green); }
 .club-card .cta { display: inline-flex; align-items: center; gap: 8px; color: var(--green); text-transform: uppercase; letter-spacing: .1em; font-size: 11px; }
@@ -300,16 +300,17 @@ a.crow:hover strong { color: var(--green); }
   .card-foot { padding-top: 18px; }
   /* club + contact */
   .club-grid { margin-bottom: clamp(24px, 3.4vh, 40px); }
+  .club .statement { font-size: clamp(30px, 3.2vw, 44px); }
+  .club-card .card-foot { padding-top: 14px; }
   .service { min-height: 200px; }
   .contact-title { font-size: clamp(34px, 4.6vw, 64px); margin-bottom: clamp(24px, 3.4vh, 40px); }
   .crow { padding: 14px 0; }
 }
 @media (min-width: 1081px) {
-  /* projects and club fill the screen: the card grids stretch to take the height */
-  #projects, #club { min-height: 100vh; display: flex; flex-direction: column; }
-  #projects > .wrap, #club > .wrap { flex: 1; display: flex; flex-direction: column; }
+  /* projects fill the screen: the card grid stretches to take the height */
+  #projects { min-height: 100vh; display: flex; flex-direction: column; }
+  #projects > .wrap { flex: 1; display: flex; flex-direction: column; }
   #projects .cards { flex: 1; grid-auto-rows: 1fr; }
-  #club .club-cards { flex: 1; }
 }
 @media (min-width: 1200px) {
   .cards { grid-template-columns: repeat(4, minmax(0, 1fr)); }
